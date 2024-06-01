@@ -2,47 +2,37 @@
 
 This repository contains a sample news website that integrates with the News API to fetch and display real-time news headlines.
 
-## Setup and Run Locally
-
-1. Clone the repository: `git clone https://github.com/cipherse/news-api-integration.git`
-2. Install dependencies: `npm install` (or `yarn install` if you prefer)
-3. Create a file named `api-key.js` in the root directory and add your News API key: `export const API_KEY = 'fe7119211bb94fd5adbbaad001bfeb04';`
-4. Start the development server: `npm start` (or `yarn start` if you prefer)
-5. Open your web browser and navigate to `http://localhost:3000`
-
-## Code Organization
-
-The code is organized into the following structures:
-
-* `src/`: Contains the frontend code
-	+ `components/`: Reusable React components
-	+ `containers/`: Higher-order components that wrap around API calls
-	+ `api/`: API client for making requests to the News API
-	+ `index.js`: Entry point for the application
-* `server/`: Contains the backend code (optional)
-	+ `routes/`: API routes for fetching news headlines
-	+ `app.js`: Entry point for the backend server
-
-## Frontend Integration
-
-The frontend is built using React and fetches data from the News API using asynchronous requests.
-
-**NewsHeadlines.js:**
-```jsx
+Setup and Run Locally
+Clone the repo: git clone https://github.com/cipherse/news-api-integration.git
+Installation of dependencies: npm i (or yarn if you wish)
+Create a file named api-key. project root and add your News API key: export const API_KEY = 'fe7119211bb94fd5adbbaad001bfeb04';
+Development server: npm start (or yarn start if you prefere)
+In your web browser go to http://localhost:3000
+Code Organization
+Structures of the code are the following:
+src/: Contains the frontend source code
+components/: common React components (react)
+This example fetches a series of postcards and displays them, a typical layout for our containers/: Higher-order components that wrap around API calls.
+api/: This part of the package is the api client for making requests to the News API.
+index. js: Root for the application
+server/ — backend code (optional)
+routes
+Frontend Integration
+It uses asynchronous requests to the News API to fetch data and the frontend is written in React.
+NewsHeadlines.js:
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const NewsHeadlines = () => {
-  const [headlines, setHeadlines] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchHeadlines = async () => {
+Rule 1: Variable name can be headlines and method name can toggle using useState rule const [headlines, setHeadlines] = useState([]);
+const [, setError] = useState();
+ useEffect(() => {
+const fetchHeadlines = renderHeadlines => {
       try {
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`);
-        setHeadlines(response.data.articles);
+const response = await axios. get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`,
+setHeadlines(response. data. articles);
       } catch (error) {
-        setError(error.message);
+setError(error. message);
       }
     };
     fetchHeadlines();
@@ -50,18 +40,15 @@ const NewsHeadlines = () => {
 
   return (
     <div>
-      <h2>Latest Headlines</h2>
-      {headlines.map((headline, index) => (
+<h2>Latest Headlines</h2>
+{headlines. map((headline, index) => (
         <div key={index}>
-          <h3>{headline.title}</h3>
-          <p>Source: {headline.source.name}</p>
-          <p>Published: {headline.publishedAt}</p>
+<h3>{headline.title}</h3>
+<p>Source: {headline. source. name}</p>
+<p>Published: {headline. publishedAt}</p>
         </div>
       ))}
-      {error && <p>Error: {error}</p>}
-    </div>
-  );
-};
+{error && <p>error : {error}</p>}
 
-export default NewsHeadlines;
+   
 # https-github.com-cipherse-news-api-integration
